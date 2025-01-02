@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "novu.ws.fullname" . }}
+  labels:
+    app: {{ include "novu.name" . }}
+    component: ws
+spec:
+  replicas: {{ .Values.ws.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "novu.name" . }}
+      component: ws
+  template:
+    metadata:
+      labels:
+        app: {{ include "novu.name" . }}
+        component: ws
+    spec:
+      {{- with .Values.global.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: ws
+          image: "{{ .Values.ws.image.repository }}:{{ .Values.ws.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.ws.image.pullPolicy }}
+          ports:
+            - containerPort: 3002
+          envFrom:
+            - configMapRef:
+                name: {{ include "novu.fullname" . }}-config
+            - secretRef:
+                name: {{ include "novu.fullname" . }}-secret
+          env:
+            - name: PORT
+              value: "{{ .Values.ws.port }}"
+            - name: WS_CONTEXT_PATH
+              value: "{{ .Values.ws.contextPath }}"
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ include "redis.fullname" . }}"
+                  key: redis-password
+          resources:
+            {{- toYaml .Values.ws.resources | nindent 12 }}
+      restartPolicy: Always

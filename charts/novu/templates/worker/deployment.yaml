@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "novu.worker.fullname" . }}
+  labels:
+    app: {{ include "novu.name" . }}
+    component: worker
+spec:
+  replicas: {{ .Values.worker.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "novu.name" . }}
+      component: worker
+  template:
+    metadata:
+      labels:
+        app: {{ include "novu.name" . }}
+        component: worker
+    spec:
+      {{- with .Values.global.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: worker
+          image: "{{ .Values.worker.image.repository }}:{{ .Values.worker.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.worker.image.pullPolicy }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "novu.fullname" . }}-config
+            - secretRef:
+                name: {{ include "novu.fullname" . }}-secret
+          env:
+            - name: BROADCAST_QUEUE_CHUNK_SIZE
+              value: "{{ .Values.worker.broadcastQueueChunkSize }}"
+            - name: MULTICAST_QUEUE_CHUNK_SIZE
+              value: "{{ .Values.worker.multicastQueueChunkSize }}"
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ include "redis.fullname" . }}"
+                  key: redis-password
+          resources:
+            {{- toYaml .Values.worker.resources | nindent 12 }}
+      restartPolicy: Always

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "novu.ws.fullname" . }}
+  labels:
+    app: {{ include "novu.name" . }}
+    component: ws
+spec:
+  type: ClusterIP
+  selector:
+    app: {{ include "novu.name" . }}
+    component: ws
+  ports:
+    - name: http
+      protocol: TCP
+      port: {{ .Values.ws.port }}
+      targetPort: 3002

@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "novu.web.fullname" . }}
+  labels:
+    app: {{ include "novu.name" . }}
+    component: web
+spec:
+  replicas: {{ .Values.web.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "novu.name" . }}
+      component: web
+  template:
+    metadata:
+      labels:
+        app: {{ include "novu.name" . }}
+        component: web
+    spec:
+      containers:
+        - name: web
+          image: "{{ .Values.web.image.repository }}:{{ .Values.web.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.web.image.pullPolicy }}
+          ports:
+            - containerPort: 4200
+          envFrom:
+            - configMapRef:
+                name: {{ include "novu.fullname" . }}-config
+          env:
+            - name: REACT_APP_WIDGET_EMBED_PATH
+              value: "{{ .Values.web.widgets.embedPath }}"
+            - name: REACT_APP_IS_SELF_HOSTED
+              value: "true"
+            - name: REACT_APP_WS_URL
+              value: "http://{{ include "novu.ws.fullname" . }}:{{ .Values.ws.port }}"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 4200
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 4200
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 10
+            failureThreshold: 3
+          command: [ '/bin/sh', '-c', 'pnpm run envsetup:docker && pnpm run start:static:build' ]
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+      {{- with .Values.global.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      restartPolicy: Always
