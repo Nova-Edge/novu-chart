@@ -5,6 +5,13 @@
 
 ### 🚀 Features
 
+* init commit ([be6639c](https://github.com/Nova-Edge/novu-chart/commit/be6639c63dace3b4aeebe8288b63a52e1fb75f64))
+
+## 0.1.0 (2025-01-02)
+
+
+### 🚀 Features
+
 * init commit ([005227e](https://github.com/Nova-Edge/novu-chart/commit/005227ebc2c896ffeea994eb4ad8e34c1bdf2e0d))
 * init commit ([623a70b](https://github.com/Nova-Edge/novu-chart/commit/623a70b9d09df240eb1e311c1c86001928d5f1af))
 
