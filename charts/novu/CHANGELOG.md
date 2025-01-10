@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/Nova-Edge/novu-chart/compare/novu-v0.1.1...novu-v0.1.2) (2025-01-10)
+
+
+### 🐞 Bug Fixes
+
+* **helm:** update REACT_APP_API_URL to use global apiRootUrl ([#10](https://github.com/Nova-Edge/novu-chart/issues/10)) ([8a9afa9](https://github.com/Nova-Edge/novu-chart/commit/8a9afa944e483ab6a54f01ae5754f3ef16d8378b))
+
 ## [0.1.1](https://github.com/Nova-Edge/novu-chart/compare/novu-v0.1.0...novu-v0.1.1) (2025-01-10)
 
 
