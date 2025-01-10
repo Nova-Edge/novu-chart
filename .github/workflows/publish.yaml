@@ -37,4 +37,4 @@ jobs:
         run: helm package ./charts/novu
 
       - name: Publish
-        run: helm push novu-*.tgz oci://ghcr.io/nova-edge/novu-chart
+        run: helm push novu-*.tgz oci://ghcr.io/nova-edge/charts
