@@ -21,7 +21,7 @@ data:
   API_ROOT_URL: {{ .Values.global.env.apiRootUrl | quote }}
   API_PORT: {{ .Values.api.port | quote }}
   API_CONTEXT_PATH: {{ .Values.api.contextPath | quote }}
-  REACT_APP_API_URL: "http://{{ include "novu.api.fullname" . }}:{{ .Values.api.port }}"
+  REACT_APP_API_URL: {{ .Values.global.env.apiRootUrl | quote }}
   REACT_APP_ENVIRONMENT: {{ .Values.global.env.nodeEnv | quote }}
   REDIS_DB_INDEX: "2"
 ---
