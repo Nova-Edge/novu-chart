@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/Nova-Edge/novu-chart/compare/novu-v0.1.0...novu-v0.1.1) (2025-01-10)
+
+
+### 🐞 Bug Fixes
+
+* **helm:** add missing ConfigMap for web environment ([#7](https://github.com/Nova-Edge/novu-chart/issues/7)) ([7fc6d75](https://github.com/Nova-Edge/novu-chart/commit/7fc6d757433c50a10481f871e6640cf7f9560db9))
+
 ## 0.1.0 (2025-01-02)
 
 
