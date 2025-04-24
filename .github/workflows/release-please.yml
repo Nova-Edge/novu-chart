@@ -1,3 +1,5 @@
+name: release-please
+
 on:
   push:
     branches:
@@ -5,16 +7,21 @@ on:
 
 permissions:
   contents: write
+  issues: write
   pull-requests: write
-
-name: release-please
 
 jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
+      - name: Get Token
+        id: get_token
+        uses: peter-murray/workflow-application-token-action@v4
+        with:
+          application_id: "${{ secrets.RELEASE_PLEASE_APPLICATION_ID }}"
+          application_private_key: ${{ secrets.RELEASE_PLEASE_PRIVATE_KEY }}
+          organization: ${{ github.repository_owner }}
       - name: Run release-please
         uses: googleapis/release-please-action@v4
         with:
-          token: ${{ secrets.DEPLOY_TOKEN }}
-          config-file: release-please-config.json
+          token: ${{ steps.get_token.outputs.token }}
