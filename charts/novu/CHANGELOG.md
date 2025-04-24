@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.3](https://github.com/Nova-Edge/novu-chart/compare/novu-v0.1.2...novu-v0.1.3) (2025-04-24)
+
+
+### 🧰 Other
+
+* **deps:** update mongodb docker tag to v16.5.1 ([#3](https://github.com/Nova-Edge/novu-chart/issues/3)) ([0dcf97a](https://github.com/Nova-Edge/novu-chart/commit/0dcf97a0af9f91e73abe57e4c40ebe2fc31b1236))
+* **deps:** update redis docker tag to v20.13.2 ([#6](https://github.com/Nova-Edge/novu-chart/issues/6)) ([693d438](https://github.com/Nova-Edge/novu-chart/commit/693d438c58f9c33389a09af510b89e4e0bfa6b3d))
+
 ## [0.1.2](https://github.com/Nova-Edge/novu-chart/compare/novu-v0.1.1...novu-v0.1.2) (2025-01-10)
 
 
