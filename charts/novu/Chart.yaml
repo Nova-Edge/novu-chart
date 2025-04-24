@@ -2,7 +2,7 @@ apiVersion: v2
 name: novu
 description: A Helm chart for Novu app
 type: application
-version: 0.1.2
+version: 0.1.3
 appVersion: "2.1.0"
 dependencies:
   - name: redis
