@@ -6,21 +6,33 @@
       "type": "object",
       "description": "Ingress configuration",
       "properties": {
-        "enabled": { "type": "boolean" },
-        "className": { "type": "string" },
+        "enabled": {
+          "type": "boolean"
+        },
+        "className": {
+          "type": "string"
+        },
         "annotations": {
           "type": "object",
-          "additionalProperties": { "type": "string" }
+          "additionalProperties": {
+            "type": "string"
+          }
         },
-        "host": { "type": "string" },
+        "host": {
+          "type": "string"
+        },
         "tls": {
           "type": "object",
           "properties": {
-            "secretName": { "type": "string" }
+            "secretName": {
+              "type": "string"
+            }
           }
         }
       },
-      "required": ["enabled"]
+      "required": [
+        "enabled"
+      ]
     },
     "service": {
       "type": "object",
@@ -28,162 +40,337 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["ClusterIP", "NodePort", "LoadBalancer"],
+          "enum": [
+            "ClusterIP",
+            "NodePort",
+            "LoadBalancer"
+          ],
           "default": "ClusterIP",
           "description": "Determines how the Service is exposed"
         },
-        "required": ["type"]
+        "required": [
+          "type"
+        ]
       }
     },
     "web": {
       "type": "object",
       "description": "Frontend web component",
       "properties": {
-        "replicaCount": { "type": "integer", "minimum": 1 },
+        "replicaCount": {
+          "type": "integer",
+          "minimum": 1
+        },
         "image": {
           "type": "object",
           "properties": {
-            "repository": { "type": "string" },
-            "pullPolicy": { "type": "string", "enum": ["Always", "IfNotPresent", "Never"] },
-            "tag": { "type": "string" }
+            "repository": {
+              "type": "string"
+            },
+            "pullPolicy": {
+              "type": "string",
+              "enum": [
+                "Always",
+                "IfNotPresent",
+                "Never"
+              ]
+            },
+            "tag": {
+              "type": "string"
+            }
           }
         },
-        "port": { "type": "integer" },
-        "resources": { "type": "object" },
+        "port": {
+          "type": "integer"
+        },
+        "resources": {
+          "type": "object"
+        },
         "widgets": {
           "type": "object",
           "description": "Embed widget configuration",
           "properties": {
-            "embedPath": { "type": "string" },
-            "url": { "type": "string" }
+            "embedPath": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
           }
         }
       },
-      "required": ["replicaCount", "image", "port"]
+      "required": [
+        "replicaCount",
+        "image",
+        "port"
+      ]
     },
     "api": {
       "type": "object",
       "description": "Backend API component",
       "properties": {
-        "replicaCount": { "type": "integer", "minimum": 1 },
+        "replicaCount": {
+          "type": "integer",
+          "minimum": 1
+        },
         "image": {
           "type": "object",
           "properties": {
-            "repository": { "type": "string" },
-            "pullPolicy": { "type": "string", "enum": ["Always", "IfNotPresent", "Never"] },
-            "tag": { "type": "string" }
+            "repository": {
+              "type": "string"
+            },
+            "pullPolicy": {
+              "type": "string",
+              "enum": [
+                "Always",
+                "IfNotPresent",
+                "Never"
+              ]
+            },
+            "tag": {
+              "type": "string"
+            }
           }
         },
-        "port": { "type": "integer" },
-        "resources": { "type": "object" },
-        "contextPath": { "type": "string" }
+        "port": {
+          "type": "integer"
+        },
+        "resources": {
+          "type": "object"
+        },
+        "contextPath": {
+          "type": "string"
+        }
       },
-      "required": ["replicaCount", "image"]
+      "required": [
+        "replicaCount",
+        "image"
+      ]
     },
     "worker": {
       "type": "object",
       "description": "Background worker component",
       "properties": {
-        "replicaCount": { "type": "integer", "minimum": 1 },
+        "replicaCount": {
+          "type": "integer",
+          "minimum": 1
+        },
         "image": {
           "type": "object",
           "properties": {
-            "repository": { "type": "string" },
-            "pullPolicy": { "type": "string", "enum": ["Always", "IfNotPresent", "Never"] },
-            "tag": { "type": "string" }
+            "repository": {
+              "type": "string"
+            },
+            "pullPolicy": {
+              "type": "string",
+              "enum": [
+                "Always",
+                "IfNotPresent",
+                "Never"
+              ]
+            },
+            "tag": {
+              "type": "string"
+            }
           }
         },
-        "resources": { "type": "object" },
-        "broadcastQueueChunkSize": { "type": "integer" },
-        "multicastQueueChunkSize": { "type": "integer" }
+        "resources": {
+          "type": "object"
+        },
+        "broadcastQueueChunkSize": {
+          "type": "integer"
+        },
+        "multicastQueueChunkSize": {
+          "type": "integer"
+        }
       },
-      "required": ["replicaCount", "image"]
+      "required": [
+        "replicaCount",
+        "image"
+      ]
     },
     "ws": {
       "type": "object",
       "description": "WebSocket component",
       "properties": {
-        "replicaCount": { "type": "integer", "minimum": 1 },
+        "replicaCount": {
+          "type": "integer",
+          "minimum": 1
+        },
         "image": {
           "type": "object",
           "properties": {
-            "repository": { "type": "string" },
-            "pullPolicy": { "type": "string", "enum": ["Always", "IfNotPresent", "Never"] },
-            "tag": { "type": "string" }
+            "repository": {
+              "type": "string"
+            },
+            "pullPolicy": {
+              "type": "string",
+              "enum": [
+                "Always",
+                "IfNotPresent",
+                "Never"
+              ]
+            },
+            "tag": {
+              "type": "string"
+            }
           }
         },
-        "port": { "type": "integer" },
-        "contextPath": { "type": "string" },
-        "resources": { "type": "object" }
+        "port": {
+          "type": "integer"
+        },
+        "contextPath": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "object"
+        }
       },
-      "required": ["replicaCount", "image"]
+      "required": [
+        "replicaCount",
+        "image"
+      ]
     },
     "global": {
       "type": "object",
       "description": "Global variables for all components",
       "properties": {
-        "imagePullSecrets": { "type": "array", "items": { "type": "string" } },
+        "imagePullSecrets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "env": {
           "type": "object",
           "properties": {
-            "nodeEnv": { "type": "string" },
+            "nodeEnv": {
+              "type": "string"
+            },
             "mongodb": {
               "type": "object",
               "properties": {
-                "maxPoolSize": { "type": "integer" },
-                "minPoolSize": { "type": "integer" }
+                "maxPoolSize": {
+                  "type": "integer"
+                },
+                "minPoolSize": {
+                  "type": "integer"
+                }
               }
             },
             "secret": {
               "type": "object",
               "properties": {
-                "novuSecretKey": { "type": "string" },
-                "jwtSecret": { "type": "string" },
-                "storageKey": { "type": "string" }
+                "novuSecretKey": {
+                  "type": "string"
+                },
+                "jwtSecret": {
+                  "type": "string"
+                },
+                "storageKey": {
+                  "type": "string"
+                }
               }
             },
             "s3": {
               "type": "object",
               "properties": {
-                "localStack": { "type": "boolean" },
-                "bucketName": { "type": "string" },
-                "region": { "type": "string" }
+                "localStack": {
+                  "type": "boolean"
+                },
+                "bucketName": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                }
               }
             },
             "aws": {
               "type": "object",
               "properties": {
-                "accessKeyId": { "type": "string" },
-                "secretAccessKey": { "type": "string" }
+                "accessKeyId": {
+                  "type": "string"
+                },
+                "secretAccessKey": {
+                  "type": "string"
+                }
               }
             },
-            "sentry": { "type": "object", "properties": { "dsn": { "type": "string" } } },
-            "newRelic": { "type": "object", "properties": { "appName": { "type": "string" }, "licenseKey": { "type": "string" } } },
-            "apiRootUrl": { "type": "string" },
-            "disableUserRegistration": { "type": "boolean" },
-            "frontBaseUrl": { "type": "string" }
+            "sentry": {
+              "type": "object",
+              "properties": {
+                "dsn": {
+                  "type": "string"
+                }
+              }
+            },
+            "newRelic": {
+              "type": "object",
+              "properties": {
+                "appName": {
+                  "type": "string"
+                },
+                "licenseKey": {
+                  "type": "string"
+                }
+              }
+            },
+            "apiRootUrl": {
+              "type": "string"
+            },
+            "disableUserRegistration": {
+              "type": "boolean"
+            },
+            "frontBaseUrl": {
+              "type": "string"
+            }
           }
         }
       },
-      "required": ["env"]
+      "required": [
+        "env"
+      ]
     },
     "redis": {
       "type": "object",
       "description": "Redis configuration",
       "properties": {
-        "enabled": { "type": "boolean" },
-        "replica": { "type": "object", "properties": { "replicaCount": { "type": "integer" } } }
+        "enabled": {
+          "type": "boolean"
+        },
+        "replica": {
+          "type": "object",
+          "properties": {
+            "replicaCount": {
+              "type": "integer"
+            }
+          }
+        }
       },
-      "required": ["enabled"]
+      "required": [
+        "enabled"
+      ]
     },
     "mongodb": {
       "type": "object",
       "description": "MongoDB configuration",
       "properties": {
-        "enabled": { "type": "boolean" },
-        "serviceBindings": { "type": "object", "properties": { "enabled": { "type": "boolean" } } }
+        "enabled": {
+          "type": "boolean"
+        },
+        "serviceBindings": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        }
       },
-      "required": ["enabled"]
+      "required": [
+        "enabled"
+      ]
     }
   },
   "additionalProperties": false

@@ -1,7 +1,9 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Nova-Edge/novu-chart/refs/heads/main/charts/novu/values.schema.json
+
 ingress:
   enabled: false
   className: ""
-  annotations: {}
+  annotations: { }
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   host: chart-example.local
@@ -19,7 +21,7 @@ web:
     pullPolicy: IfNotPresent
     tag: ""
   port: 4200
-  resources: {}
+  resources: { }
   widgets:
     embedPath: http://localhost:4701/embed.umd.min.js
     url: http://localhost:4500
@@ -31,7 +33,7 @@ api:
     pullPolicy: IfNotPresent
     tag: ""
   port: 3000
-  resources: {}
+  resources: { }
   contextPath: ""
 
 worker:
@@ -40,7 +42,7 @@ worker:
     repository: ghcr.io/novuhq/novu/worker
     pullPolicy: IfNotPresent
     tag: ""
-  resources: {}
+  resources: { }
   broadcastQueueChunkSize: 100
   multicastQueueChunkSize: 100
 
@@ -52,10 +54,10 @@ ws:
     tag: ""
   port: 3002
   contextPath: ""
-  resources: {}
+  resources: { }
 
 global:
-  imagePullSecrets: []
+  imagePullSecrets: [ ]
   env:
     nodeEnv: production
     mongodb:
