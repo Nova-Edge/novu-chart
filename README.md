@@ -1,46 +1,24 @@
-<div align="center">
-  <a href="https://novu.co?utm_source=github" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/2233092/213641039-220ac15f-f367-4d13-9eaf-56e79433b8c1.png">
-    <img alt="Novu Logo" src="https://user-images.githubusercontent.com/2233092/213641043-3bbb3f21-3c53-4e67-afe5-755aeb222159.png" width="280"/>
-  </picture>
-  </a>
-</div>
+[![Novu Logo](https://user-images.githubusercontent.com/2233092/213641043-3bbb3f21-3c53-4e67-afe5-755aeb222159.png)](https://novu.co?utm_source=github)
 
-<br/>
+[![License](https://img.shields.io/github/license/nova-edge/novu-chart)](https://github.com/nova-edge/novu-chart/blob/main/LICENSE) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/novu)](https://artifacthub.io/packages/helm/novu/novu) 
 
-<p align="center">
-  <a href="https://github.com/nova-edge/novu-chart/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/nova-edge/novu-chart" alt="MIT">
-  </a>
-</p>
+⚠️ This Helm Chart is created by the community and is not officially supported by the Novu team.
 
-<div align="center">
-  ⚠️ This Helm Chart is created by the community and is not officially supported by the Novu team.
-</div>
+This Helm Chart project provides an easy way to deploy Novu, an innovative open-source tool that significantly simplifies notification integration into modern applications. By using this Helm Chart, teams can leverage a robust and flexible solution to orchestrate all of Novu's features across their Kubernetes clusters, ensuring complete adaptability and optimized configuration according to their specific needs.
 
-<div align="center">
-  This Helm Chart project provides an easy way to deploy Novu, an innovative open-source tool that significantly simplifies notification integration into modern applications. By using this Helm Chart, teams can leverage a robust and flexible solution to orchestrate all of Novu's features across their Kubernetes clusters, ensuring complete adaptability and optimized configuration according to their specific needs.
-</div>
+**Explore the official Novu documentation »**  
+https://docs.novu.co?utm_campaign=github-readme
 
-<p align="center">
-  <br />
-  <a href="https://docs.novu.co?utm_campaign=github-readme" rel="dofollow"><strong>Explore the official Novu documentation »</strong></a>
-  <br />
-  or
-  <br />
-  <a href="https://github.com/nova-edge/novu-chart/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%F0%9F%90%9B+Bug+Report%3A+">Report a bug</a>
-  ·
-  <a href="https://github.com/nova-edge/novu-chart/issues/new?assignees=&labels=enhancement&template=feature_request.yml&title=%F0%9F%9A%80+Feature%3A+">Request a feature</a>
-  ·
-  <a href="https://bit.ly/novu-github-discord">Join our Discord</a>
-</p>
+**Report a bug** · **Request a feature** · **Join our Discord**
+- Bug report: https://github.com/nova-edge/novu-chart/issues/new?assignees=&labels=bug&template=bug_report.yml
+- Feature request: https://github.com/nova-edge/novu-chart/issues/new?assignees=&labels=enhancement&template=feature_request.yml
+- Discord: https://discord.gg/5hNfTC68fw
 
 ## ⭐ Why Use This Helm Chart for Novu?
 
 This Helm Chart offers an efficient and simplified method for deploying Novu within Kubernetes clusters, enabling development teams to seamlessly and centrally integrate multi-channel notifications. Novu is designed to manage a broad range of notification channels, including email, SMS, push notifications, and in-app notifications, ensuring a consistent and enhanced experience for the end user. Using this Helm Chart, it is possible to deploy a complete notification management solution with just a few commands, seamlessly integrating into your existing infrastructure while guaranteeing high levels of security and scalability.
 
-Whether you are a startup looking to accelerate the implementation of your services or an enterprise requiring scalable deployment, this Helm Chart simplifies every step of the integration process. This allows you to focus on product innovation without being bogged down by the underlying infrastructure complexities. Novu adapts equally well to the needs of small teams and to more complex multi-tenant deployments.
+Whether you are a startup looking to speed up the implementation of your services or an enterprise requiring scalable deployment, this Helm Chart simplifies every step of the integration process. This allows you to focus on product innovation without being bogged down by the underlying infrastructure complexities. Novu adapts equally well to the needs of small teams and to more complex multi-tenant deployments.
 
 ## ✨ Features
 
@@ -58,28 +36,21 @@ Whether you are a startup looking to accelerate the implementation of your servi
 To get started with this Helm Chart, follow the steps below:
 
 1. Add the Helm repository:
-
    ```bash
-   helm repo add novu-helm oci://ghcr.io/nova-edge/novu
+   helm repo add nova-edge-charts oci://ghcr.io/nova-edge/charts
    ```
-
-   Adding this repository will give you access to the most recent versions of our Helm Chart, ensuring you always have the latest improvements and fixes.
 
 2. Install the Novu Chart:
-
    ```bash
-   helm install my-novu novu-helm/novu
+   helm install novu nova-edge-charts/novu
    ```
 
-   This command will deploy Novu with default settings. To cater to the specific needs of your infrastructure, you can customize the deployment by using a custom `values.yaml` file.
-
 3. Configure your installation:
-
    The `values.yaml` file allows you to customize every aspect of the Novu installation, from resource management to configuring environment parameters. This flexibility enables you to adapt the deployment to achieve optimal performance and compatibility, whether for local experimentation or large-scale production deployments.
 
 ## 📚 Table of Contents
 
-- [Why Use This Helm Chart](#-why-use-this-helm-chart-for-novu)
+- [Why Use This Helm Chart for Novu?](#-why-use-this-helm-chart-for-novu)
 - [Features](#-features)
 - [Getting Started](#-getting-started)
 - [Configuration](#%EF%B8%8F-configuration)
@@ -96,13 +67,8 @@ ingress:
   enabled: false
   className: ""
   annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
   host: chart-example.local
   tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
 
 service:
   type: ClusterIP
@@ -127,7 +93,7 @@ api:
     tag: ""
   port: 3000
   resources: {}
-  contextPath:
+  contextPath: ""
 
 worker:
   replicaCount: 1
@@ -146,7 +112,7 @@ ws:
     pullPolicy: IfNotPresent
     tag: ""
   port: 3002
-  contextPath:
+  contextPath: ""
   resources: {}
 
 global:
@@ -188,7 +154,7 @@ For a complete list of configurable values, refer to the [values.yaml file](http
 
 ## 💻 Need Help?
 
-If you encounter any issues or have questions, join our [Discord server](https://discord.novu.co) for support. You can also open a [GitHub issue](https://github.com/nova-edge/novu-chart/issues). Our community is active and ready to assist you in resolving problems and answering your questions.
+If you encounter any issues or have questions, join our [Discord server](https://discord.novu.co) for support. You can also open a [GitHub issue](https://github.com/nova-edge/novu-chart/issues/new). Our community is active and ready to assist you in resolving problems and answering your questions.
 
 ## 🔗 Links
 
@@ -200,15 +166,11 @@ If you encounter any issues or have questions, join our [Discord server](https:/
 
 ## 🛡️ License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/nova-edge/novu-chart/blob/main/LICENSE) file for details. This license allows you to use, modify, and distribute this project freely, as long as the established terms are met.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/nova-edge/novu-chart/blob/main/LICENSE) file for details.
 
 ## 💪 Thanks to All Our Contributors
 
 Thanks to everyone who has taken the time to contribute to this project and help it grow! Your participation is essential to making Novu the best open-source notification management solution.
 
-<a href="https://github.com/nova-edge/novu-chart/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=nova-edge/novu-chart" />
-</a>
-
-We encourage you to contribute by opening issues, suggesting new features, or improving the documentation. Every contribution, large or small, is valuable to us and to the community!
+[![Contributors](https://contrib.rocks/image?repo=nova-edge/novu-chart)](https://github.com/nova-edge/novu-chart/graphs/contributors)
 
