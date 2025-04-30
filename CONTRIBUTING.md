@@ -1,6 +1,7 @@
 # Contributing Guide for the Novu Helm Chart 🌟
 
-Thank you for contributing to our Helm Chart project for deploying **Novu**, the open-source notification infrastructure. Follow these steps to ensure a smooth development experience. 🛠️
+Thank you for contributing to our Helm Chart project for deploying **Novu**, the open-source notification
+infrastructure. Follow these steps to ensure a smooth development experience. 🛠️
 
 ## Prerequisites 📋
 

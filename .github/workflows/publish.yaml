@@ -1,6 +1,6 @@
 on:
   release:
-    types: [published]
+    types: [ published ]
 
 name: Publish Novu Chart
 
@@ -28,7 +28,7 @@ jobs:
         run: helm dependencies build ./charts/novu
 
       - name: Login to GitHub Container Registry
-        run : echo '${{ secrets.GITHUB_TOKEN }}' | helm registry login -u '${{ github.actor }}' --password-stdin ghcr.io
+        run: echo '${{ secrets.GITHUB_TOKEN }}' | helm registry login -u '${{ github.actor }}' --password-stdin ghcr.io
         env:
           HELM_EXPERIMENTAL_OCI: '1'
 
