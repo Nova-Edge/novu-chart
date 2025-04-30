@@ -1,0 +1,40 @@
+on:
+  push:
+    tags:
+      - '*'
+
+name: Publish Artifact Hub Metadata
+
+jobs:
+  push_metadata:
+    name: Push Artifact Hub Metadata
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read        # Allow reading repository files
+      packages: write       # Allow writing to GHCR
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        # Checks out the code so we can read artifacthub-repo.yml
+
+      - name: Install ORAS CLI
+        uses: oras-project/setup-oras@v1
+        # Installs the ORAS tool for OCI artifact operations
+
+      - name: Login ORAS to GitHub Container Registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" \
+            | oras login ghcr.io \
+            --username "${{ github.actor }}" \
+            --password-stdin
+        # Authenticates ORAS using the same GitHub token as Helm
+
+      - name: Push Artifact Hub metadata layer
+        run: |
+          oras push \
+            ghcr.io/nova-edge/charts/novu:artifacthub.io \
+            --config /dev/null:application/vnd.cncf.artifacthub.config.v1+yaml \
+            artifacthub-repo.yml:application/vnd.cncf.artifacthub.repository-metadata.layer.v1.yaml
+        # Pushes the repository‐level metadata (artifacthub-repo.yml)
+        # under the special tag "artifacthub.io"
