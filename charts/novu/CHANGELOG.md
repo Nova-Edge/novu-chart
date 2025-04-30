@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/Nova-Edge/novu-chart/compare/novu-v0.1.3...novu-v0.1.4) (2025-04-30)
+
+
+### 📚 Documentation
+
+* **helm:** enhance Chart.yaml and README with additional metadata ([#22](https://github.com/Nova-Edge/novu-chart/issues/22)) ([6cb2ff7](https://github.com/Nova-Edge/novu-chart/commit/6cb2ff7f1ae413184ab442a9fcc6bc4d049f45d9))
+
 ## [0.1.3](https://github.com/Nova-Edge/novu-chart/compare/novu-v0.1.2...novu-v0.1.3) (2025-04-24)
 
 
