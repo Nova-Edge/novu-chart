@@ -2,7 +2,7 @@ apiVersion: v2
 name: novu
 description: Helm chart to deploy Novu, the open-source notification infrastructure
 type: application
-version: 0.1.4
+version: 0.2.0
 appVersion: "2.1.0"
 home: https://github.com/nova-edge/novu-chart
 icon: https://raw.githubusercontent.com/novuhq/novu/next/apps/web/public/static/images/novu.png

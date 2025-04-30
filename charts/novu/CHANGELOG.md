@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.2.0](https://github.com/Nova-Edge/novu-chart/compare/novu-v0.1.4...novu-v0.2.0) (2025-04-30)
+
+
+### 🚀 Features
+
+* **schema:** add values.schema.json for Helm chart validation ([#24](https://github.com/Nova-Edge/novu-chart/issues/24)) ([c8b216c](https://github.com/Nova-Edge/novu-chart/commit/c8b216c1e66aade12c05f75c59cb08d67fc5c4e9))
+
+
+### 🧰 Other
+
+* format all files ([#27](https://github.com/Nova-Edge/novu-chart/issues/27)) ([e67f563](https://github.com/Nova-Edge/novu-chart/commit/e67f56301b59d86a181adaa5a609a7141f7f0f06))
+
+
+### 📚 Documentation
+
+* **chart:** enhance README with emojis and validation ([#26](https://github.com/Nova-Edge/novu-chart/issues/26)) ([6c5a4e3](https://github.com/Nova-Edge/novu-chart/commit/6c5a4e315e863e241920b228efea9a05e0311f09))
+
 ## [0.1.4](https://github.com/Nova-Edge/novu-chart/compare/novu-v0.1.3...novu-v0.1.4) (2025-04-30)
 
 
