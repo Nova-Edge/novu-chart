@@ -32,7 +32,7 @@ api:
     tag: ""
   port: 3000
   resources: {}
-  contextPath:
+  contextPath: ""
 
 worker:
   replicaCount: 1
@@ -51,7 +51,7 @@ ws:
     pullPolicy: IfNotPresent
     tag: ""
   port: 3002
-  contextPath:
+  contextPath: ""
   resources: {}
 
 global:
