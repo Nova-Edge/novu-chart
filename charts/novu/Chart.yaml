@@ -1,9 +1,28 @@
 apiVersion: v2
 name: novu
-description: A Helm chart for Novu app
+description: Helm chart to deploy Novu, the open-source notification infrastructure
 type: application
 version: 0.1.3
 appVersion: "2.1.0"
+home: https://github.com/nova-edge/novu-chart
+icon: https://raw.githubusercontent.com/novuhq/novu/next/apps/web/public/static/images/novu.png
+sources:
+  - https://github.com/nova-edge/novu-chart
+keywords:
+  - novu
+  - notifications
+  - notification-center
+  - sms
+  - email
+  - push
+annotations:
+  artifacthub.io/license: MIT
+  artifacthub.io/category: integration-delivery
+maintainers:
+  - name: Ugo Mignon
+    email: ugo.mignon@gameverse.app
+  - name: Jordan Labrosse
+    email: jordan.labrosse@gameverse.app
 dependencies:
   - name: redis
     version: 20.13.2
