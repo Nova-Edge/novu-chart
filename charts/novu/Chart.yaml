@@ -25,7 +25,7 @@ maintainers:
     email: jordan.labrosse@gameverse.app
 dependencies:
   - name: redis
-    version: 20.13.2
+    version: 20.13.4
     repository: oci://registry-1.docker.io/bitnamicharts
     condition: redis.enabled
   - name: mongodb
