@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/Nova-Edge/novu-chart/compare/novu-v0.2.0...novu-v0.2.1) (2025-05-19)
+
+
+### 🧰 Other
+
+* **deps:** update redis docker tag to v20.13.4 ([#19](https://github.com/Nova-Edge/novu-chart/issues/19)) ([3a5ecd0](https://github.com/Nova-Edge/novu-chart/commit/3a5ecd0d3e2233376709bd41d27998a0c46315ae))
+
 ## [0.2.0](https://github.com/Nova-Edge/novu-chart/compare/novu-v0.1.4...novu-v0.2.0) (2025-04-30)
 
 
