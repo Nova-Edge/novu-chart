@@ -30,9 +30,7 @@
           }
         }
       },
-      "required": [
-        "enabled"
-      ]
+      "required": ["enabled"]
     },
     "service": {
       "type": "object",
@@ -40,18 +38,12 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": [
-            "ClusterIP",
-            "NodePort",
-            "LoadBalancer"
-          ],
+          "enum": ["ClusterIP", "NodePort", "LoadBalancer"],
           "default": "ClusterIP",
           "description": "Determines how the Service is exposed"
-        },
-        "required": [
-          "type"
-        ]
-      }
+        }
+      },
+      "required": ["type"]
     },
     "web": {
       "type": "object",
@@ -69,11 +61,7 @@
             },
             "pullPolicy": {
               "type": "string",
-              "enum": [
-                "Always",
-                "IfNotPresent",
-                "Never"
-              ]
+              "enum": ["Always", "IfNotPresent", "Never"]
             },
             "tag": {
               "type": "string"
@@ -99,11 +87,7 @@
           }
         }
       },
-      "required": [
-        "replicaCount",
-        "image",
-        "port"
-      ]
+      "required": ["replicaCount", "image", "port"]
     },
     "api": {
       "type": "object",
@@ -121,11 +105,7 @@
             },
             "pullPolicy": {
               "type": "string",
-              "enum": [
-                "Always",
-                "IfNotPresent",
-                "Never"
-              ]
+              "enum": ["Always", "IfNotPresent", "Never"]
             },
             "tag": {
               "type": "string"
@@ -142,10 +122,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "replicaCount",
-        "image"
-      ]
+      "required": ["replicaCount", "image"]
     },
     "worker": {
       "type": "object",
@@ -163,11 +140,7 @@
             },
             "pullPolicy": {
               "type": "string",
-              "enum": [
-                "Always",
-                "IfNotPresent",
-                "Never"
-              ]
+              "enum": ["Always", "IfNotPresent", "Never"]
             },
             "tag": {
               "type": "string"
@@ -184,10 +157,7 @@
           "type": "integer"
         }
       },
-      "required": [
-        "replicaCount",
-        "image"
-      ]
+      "required": ["replicaCount", "image"]
     },
     "ws": {
       "type": "object",
@@ -205,11 +175,7 @@
             },
             "pullPolicy": {
               "type": "string",
-              "enum": [
-                "Always",
-                "IfNotPresent",
-                "Never"
-              ]
+              "enum": ["Always", "IfNotPresent", "Never"]
             },
             "tag": {
               "type": "string"
@@ -226,10 +192,7 @@
           "type": "object"
         }
       },
-      "required": [
-        "replicaCount",
-        "image"
-      ]
+      "required": ["replicaCount", "image"]
     },
     "global": {
       "type": "object",
@@ -328,9 +291,7 @@
           }
         }
       },
-      "required": [
-        "env"
-      ]
+      "required": ["env"]
     },
     "redis": {
       "type": "object",
@@ -348,9 +309,7 @@
           }
         }
       },
-      "required": [
-        "enabled"
-      ]
+      "required": ["enabled"]
     },
     "mongodb": {
       "type": "object",
@@ -368,9 +327,7 @@
           }
         }
       },
-      "required": [
-        "enabled"
-      ]
+      "required": ["enabled"]
     }
   },
   "additionalProperties": false
