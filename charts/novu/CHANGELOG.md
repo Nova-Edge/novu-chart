@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/Nova-Edge/novu-chart/compare/novu-v0.2.1...novu-v0.2.2) (2025-11-09)
+
+
+### 🐞 Bug Fixes
+
+* JSON schema to consolidate required fields ([#41](https://github.com/Nova-Edge/novu-chart/issues/41)) ([363e7de](https://github.com/Nova-Edge/novu-chart/commit/363e7de313ea025c4692b4b54d68798b5df33f48))
+
 ## [0.2.1](https://github.com/Nova-Edge/novu-chart/compare/novu-v0.2.0...novu-v0.2.1) (2025-08-13)
 
 
