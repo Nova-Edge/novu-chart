@@ -33,6 +33,6 @@ dependencies:
     repository: oci://registry-1.docker.io/bitnamicharts
     condition: redis.enabled
   - name: mongodb
-    version: 16.5.1
+    version: 18.4.4
     repository: oci://registry-1.docker.io/bitnamicharts
     condition: mongodb.enabled
