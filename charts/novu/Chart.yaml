@@ -7,7 +7,7 @@ version: 0.2.1
 # renovate: image=ghcr.io/novuhq/novu/ws
 # renovate: image=ghcr.io/novuhq/novu/api
 # renovate: image=ghcr.io/novuhq/novu/worker
-appVersion: "2.1.0"
+appVersion: "3.13.0"
 home: https://github.com/nova-edge/novu-chart
 icon: https://raw.githubusercontent.com/novuhq/novu/next/apps/web/public/static/images/novu.png
 sources:
